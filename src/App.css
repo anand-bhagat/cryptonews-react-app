@@ -47,9 +47,9 @@ a:hover{
 .logo-container{
     background-color: #001529;
     display: flex;
-    padding: 20px;
     align-items: center;
     width: 100%;
+    height: inherit;
 }
 .logo{
     margin:0 0 0 15px;
@@ -57,7 +57,7 @@ a:hover{
 .logo a{
    color: white;
 }
-.menu-control-container{
+/* .menu-control-container{
     display: none !important;
     position: absolute !important;
     right: 10px !important;
@@ -65,14 +65,14 @@ a:hover{
     font-size: 1.2rem !important;
     background-color: var(--bgSecondary) !important;
     border: none !important;
-}
+} */
 
-.loader{
+/* .loader{
     height: 81vh;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 @media screen and (max-width:1300px){
     .main{
@@ -117,9 +117,9 @@ a:hover{
         background-color: var(--bgSecondary);
     }
   
-    .menu-control-container{
+    /* .menu-control-container{
         display: block !important;
-    }
+    } */
 
     .ant-menu{
         position: absolute;
@@ -290,21 +290,21 @@ a:hover{
 .select-news{
     width: 180px;
 }
-.news-card{
+/* .news-card{
     min-height: 300px !important;
-}
-.news-image-container{
+} */
+/* .news-image-container{
     display: flex !important;
     justify-content: space-between !important;
-}
+} */
 .news-title{
 width: 70%;
 }
 
-.news-image-container .img{
+/* .news-image-container .img{
     width:100px;
     height:100px;
-}
+} */
 .news-card p{
     color: black;
     margin: 10px 0px !important;
@@ -354,15 +354,16 @@ width: 70%;
 .search-crypto{
     margin: 20px auto 30px auto;
     width: 250px;
+    display: flex;
 }
-.crypto-card-container{
+/* .crypto-card-container{
     min-height: 65vh !important;
 }
 .crypto-card{
     min-width: 250px;
-}
+} */
 .crypto-card .crypto-image{
-    width:35px;
+    height:35px;
 }
 .select-timeperiod{
     width: 200px !important;
@@ -376,3 +377,35 @@ width: 70%;
     padding: 20px;
     align-items: center;
 }
+
+@media (min-width: 768px) {
+    .navigationTrigger {
+        display: none!important;
+        float: right;
+    }
+}
+
+.site-layout{
+    margin-left: 200px;
+}
+
+@media (max-width: 768px) {
+    .site-layout{
+        margin-left: 0;
+    }
+}
+
+.loader{
+    display: flex;
+    position: fixed;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(0,0,0, 0.8);
+    z-index: 11;
+}
+

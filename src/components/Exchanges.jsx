@@ -3,6 +3,7 @@ import { Col, Row, Select, Table } from 'antd';
 import { useGetCryptoExchangesQuery, useGetCryptosQuery } from '../services/cryptoApi';
 import millify from 'millify';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import Loader from './Loader';
 
 const { Option} = Select;
 
@@ -28,11 +29,13 @@ const Exchanges = () => {
           title: 'Number Of Markets',
           dataIndex: 'numberOfMarkets',
           key: 'numberOfMarkets',
+          responsive: ['lg'],
         },
         {
             title: '24 hour Volume',
             dataIndex: 'twentfourhVolume',
             key: 'twentfourhVolume',
+            responsive: ['md'],
         },
         {
             title: 'Price',
@@ -43,13 +46,15 @@ const Exchanges = () => {
             title: 'Recommended',
             dataIndex: 'recommended',
             key: 'recommended',
-            render: (text, record) => record.recommended ? <CheckOutlined style={{ color: "#008000"}} /> : <CloseOutlined style={{ color: "#FF0000"}} />
+            render: (text, record) => record.recommended ? <CheckOutlined style={{ color: "#008000"}} /> : <CloseOutlined style={{ color: "#FF0000"}} />,
+            responsive: ['sm'],
         },
         {
             title: 'Verified',
             dataIndex: 'verified',
             key: 'verified',
-            render: (text, record) => record.verified ? <CheckOutlined style={{ color: "#008000"}} /> : <CloseOutlined style={{ color: "#FF0000"}} /> 
+            render: (text, record) => record.verified ? <CheckOutlined style={{ color: "#008000"}} /> : <CloseOutlined style={{ color: "#FF0000"}} />,
+            responsive: ['sm'],
         },
     ];
 
@@ -73,12 +78,11 @@ const Exchanges = () => {
         setDataSource(temp);
     }, [data]);
 
-    if(isCurrencyFetching || isFetching) return 'Loading.....'; //
-
     return (
         <div>
+            {(isCurrencyFetching || isFetching) && <Loader />}
             <Row>
-                <Col span={24}>
+                <Col span={24}  style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
                     <Select 
                         showSearch 
                         className='select-news' 
