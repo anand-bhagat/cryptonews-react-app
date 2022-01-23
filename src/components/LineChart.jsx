@@ -9,7 +9,6 @@ import {
     Legend,
   } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { Col, Row, Typography } from 'antd';
 import moment from 'moment';
 
 ChartJS.register(
@@ -22,8 +21,7 @@ ChartJS.register(
   );
 
 
-const { Title } = Typography;
-const LineChart = ({ cryptoHistory, currentPrice, cryptoName}) => {
+const LineChart = ({ cryptoHistory}) => {
     const cryptoPrice = [];
     const cryptoTimestamp = [];
 
@@ -35,6 +33,7 @@ const LineChart = ({ cryptoHistory, currentPrice, cryptoName}) => {
 
     const options = {
         responsive: true,
+        maintainAspectRatio : false,
         plugins: {
             legend: {
                 position: 'top',
@@ -60,16 +59,9 @@ const LineChart = ({ cryptoHistory, currentPrice, cryptoName}) => {
     };
 
     return (
-        <>
-            <Row className='chart-header'>
-                <Title level={2} className='chart-title'>{cryptoName} Price Chart</Title>
-                <Col className='price-container'>
-                    <Title level={5} className='price-change'>{cryptoHistory?.data?.change}%</Title>
-                    <Title level={5} className='current-price'>Current {cryptoName} Price: $ {currentPrice}</Title>
-                </Col>
-            </Row>
-            <Line data={data} options={options}/>
-        </>
+        <div className='priceChangeChart'>
+            <Line data={data} options={options} height="100%"/>
+        </div>
     )
 }
 

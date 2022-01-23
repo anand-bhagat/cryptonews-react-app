@@ -74,6 +74,7 @@ const App = () => {
                             drawerStyle={{ backgroundColor: '#001529' }}
                             headerStyle={{ backgroundColor: '#001529', color:'#FFFFFF', border: 'none' }}
                             theme="dark"
+                            width={300}
                         > 
                             <TopicMenu />
                         </Drawer>

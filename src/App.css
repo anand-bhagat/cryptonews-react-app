@@ -409,3 +409,9 @@ width: 70%;
     z-index: 11;
 }
 
+.priceChangeChart{
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+}
+
